@@ -1,0 +1,8 @@
+<div class="todo-page" *ngIf='todo'>
+  <div class='controls'>
+    <input type='checkbox' class='completed' [checked]='todo.complete' (change)='toggleDone()' />
+    <input #namesField type='text' class='name' [value]='todo.name' (input)='nameChanged(namesField.value)' />
+    <app-btn (click)='delete()'>Delete</app-btn>
+  </div>
+  <textarea #notesField class='notes' [value]='todo.notes' (input)='notesChanged(notesField.value)'></textarea>
+</div>

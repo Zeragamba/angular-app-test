@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  align-items: center;
+
+  padding: 8px;
+  border: 1px solid gray;
+  border-radius: 4px;
+
+  background: white;
+  transition: background-color 250ms;
+
+  &:hover {
+    background: whitesmoke !important;
+  }
+}

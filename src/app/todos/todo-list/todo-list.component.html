@@ -1,0 +1,8 @@
+<ol>
+  <li *ngFor="let item of todos">
+    <app-todo-item [todo]="item"></app-todo-item>
+  </li>
+  <li>
+    <app-add-item (todoAdded)="todoAdded($event)"></app-add-item>
+  </li>
+</ol>

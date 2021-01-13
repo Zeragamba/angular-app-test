@@ -1,0 +1,4 @@
+<app-btn *ngIf='todo' (click)='openTask()'>
+  <input type='checkbox' [checked]='todo.complete' (click)='toggleDone($event)' />
+  <span class='name'>{{ todo.name }}</span>
+</app-btn>
