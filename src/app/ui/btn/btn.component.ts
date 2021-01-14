@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-btn',
-  templateUrl: './btn.component.html',
-  styleUrls: ['./btn.component.scss']
+  template: '<ng-content></ng-content>',
+  styleUrls: ['./btn.component.scss'],
 })
-export class BtnComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class BtnComponent {}

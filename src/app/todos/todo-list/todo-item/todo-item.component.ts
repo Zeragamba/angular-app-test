@@ -1,7 +1,7 @@
 import {Component, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subject} from 'rxjs';
-import {map, mergeMap, takeUntil, tap} from 'rxjs/operators';
+import {map, takeUntil} from 'rxjs/operators';
 import {Todo} from '../../../../vendor/server-endpoint';
 import {TodoService} from '../../../todo.service';
 
@@ -24,7 +24,7 @@ export class TodoItemComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.params.pipe(
-      map(params => parseInt(params.todoId)),
+      map(params => parseInt(params.todoId, 10)),
       map(todoId => todoId === this.todo?.id),
       takeUntil(this.unsubscribe$),
     ).subscribe(isActive => this.active = isActive);

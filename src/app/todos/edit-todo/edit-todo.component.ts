@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subject} from 'rxjs';
-import {debounce, debounceTime, map, mergeMap, takeUntil, tap} from 'rxjs/operators';
+import {debounceTime, map, mergeMap, takeUntil, tap} from 'rxjs/operators';
 import {Todo} from '../../../vendor/server-endpoint';
 import {TodoService} from '../../todo.service';
 
@@ -24,7 +24,7 @@ export class EditTodoComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.params.pipe(
-      map(params => parseInt(params.todoId)),
+      map(params => parseInt(params.todoId, 10)),
       mergeMap(todoId => this.todoService.getTodo(todoId)),
       takeUntil(this.unsubscribe$),
     ).subscribe((todo) => this.todo = todo);
